@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,6 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 
+=======
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../../components/header/header.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+>>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
 
 interface UsuarioLogin {
   email: string;
@@ -17,7 +23,11 @@ interface UsuarioLogin {
 @Component({
   selector: 'app-login',
   standalone: true,
+<<<<<<< HEAD
   imports: [CommonModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule, MatCardModule],
+=======
+  imports: [CommonModule, FormsModule],
+>>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -27,8 +37,11 @@ export class LoginComponent {
     senha: ''
   };
 
+<<<<<<< HEAD
   esconderSenha = true; 
 
+=======
+>>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
   enviar(): void {
     if (!this.usuario.email || !this.usuario.senha) {
       alert('Preencha todos os campos!');
@@ -40,6 +53,9 @@ export class LoginComponent {
 
     this.usuario = { email: '', senha: '' };
   }
+<<<<<<< HEAD
 
   
+=======
+>>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
 }

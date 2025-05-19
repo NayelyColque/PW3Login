@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="login-container">
   <mat-card class="login-card">
     <h2 class="login-title">Login</h2>
@@ -39,4 +40,30 @@
       </button>
     </form>
   </mat-card>
+=======
+  <div class="login-container">
+  <h2>Login</h2>
+
+  <form (ngSubmit)="enviar()">
+    <label for="email">Usuario:</label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      [(ngModel)]="usuario.email"
+      required
+    />
+
+    <label for="senha">Senha:</label>
+    <input
+      id="senha"
+      type="password"
+      name="senha"
+      [(ngModel)]="usuario.senha"
+      required
+    />
+
+    <button>enviar</button>
+  </form>
+>>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
 </div>
