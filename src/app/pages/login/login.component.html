@@ -1,29 +1,39 @@
-<<<<<<< HEAD
 <div class="login-container">
   <mat-card class="login-card">
     <h2 class="login-title">Login</h2>
 
-    <form (ngSubmit)="enviar()">
+    <form [formGroup]="usuario" (ngSubmit)="enviar()">
       <mat-form-field appearance="fill" class="small-field" hideRequiredMarker>
-        <mat-label>User</mat-label>
+        <mat-label>E-mail</mat-label>
         <mat-icon matPrefix>person</mat-icon>
-        <input matInput type="email" [(ngModel)]="usuario.email" name="email" required />
+        <input matInput type="email" name="email" required formArrayName="email" />
+        @if(usuario.get('email')?.touched && usuario.get('email')?.invalid){
+          <div>
+            @if(usuario.get('email')?.errors?.['required']){
+              <small>E-mail deve ser obrigatorio.</small>
+            }
+            @if(usuario.get('email')?.errors?.['email']){
+              <small>Formato de E-mail deve ser valido.</small>
+            }
+
+            </div>
+            }
       </mat-form-field>
+
 
       <mat-form-field appearance="fill" class="small-field" hideRequiredMarker>
         <mat-label>Senha</mat-label>
         <mat-icon matPrefix>lock</mat-icon>
-        <input matInput 
-              [type]="esconderSenha ? 'password' : 'text'" 
-              [(ngModel)]="usuario.senha" 
-              name="senha" 
+        <input matInput
+              [type]="esconderSenha ? 'password' : 'text'"
+              name="senha"
               required />
 
-        <button mat-icon-button 
-                matSuffix 
-                type="button" 
-                (click)="esconderSenha = !esconderSenha" 
-                [attr.aria-label]="'Toggle password visibility'" 
+        <button mat-icon-button
+                matSuffix
+                type="button"
+                (click)="esconderSenha = !esconderSenha"
+                [attr.aria-label]="'Toggle password visibility'"
                 [attr.aria-pressed]="!esconderSenha">
           <mat-icon>{{ esconderSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
@@ -40,30 +50,4 @@
       </button>
     </form>
   </mat-card>
-=======
-  <div class="login-container">
-  <h2>Login</h2>
-
-  <form (ngSubmit)="enviar()">
-    <label for="email">Usuario:</label>
-    <input
-      id="email"
-      type="email"
-      name="email"
-      [(ngModel)]="usuario.email"
-      required
-    />
-
-    <label for="senha">Senha:</label>
-    <input
-      id="senha"
-      type="password"
-      name="senha"
-      [(ngModel)]="usuario.senha"
-      required
-    />
-
-    <button>enviar</button>
-  </form>
->>>>>>> 6772fc356764123090a4e44bb46438e1306c071d
 </div>
