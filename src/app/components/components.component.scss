@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+  background-color: #faf6ed;
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+  }
+
+.left.icon{
+  height: 200px;
+  width: 200px;;
+}
+
+  .icon {
+    font-size: 30px;
+    color: #fff;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #4376a0;
+    }
+  }
+
+}

@@ -1,0 +1,53 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2 class="login-title">Login</h2>
+
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
+      <mat-form-field appearance="fill" class="small-field" hideRequiredMarker>
+        <mat-label>E-mail</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput formControlName="email" type="email" />
+        @if (formulario.get('email')?.touched && formulario.get('email')?.invalid){
+          <div>
+            @if (formulario.get('email')?.errors?.['required']) {
+              <mat-error>Email é obrigatório.</mat-error>
+            }
+            @if (formulario.get('email')?.errors?.['email']) {
+              <mat-error>Formato de e-mail inválido.</mat-error>
+            }
+          </div>
+        }
+
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="small-field" hideRequiredMarker>
+        <mat-label>Senha</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput [type]="esconderSenha ? 'password' : 'text'" formControlName="senha" />
+        <button mat-icon-button matSuffix type="button"
+          (click)="esconderSenha = !esconderSenha">
+          <mat-icon>{{ esconderSenha ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid){
+          <div>
+            @if (formulario.get('senha')?.errors?.['required']) {
+              <mat-error>Senha é obrigatória.</mat-error>
+            }
+            @if (formulario.get('senha')?.errors?.['minlength']) {
+              <mat-error>Senha deve ter no mínimo 6 caracteres.</mat-error>
+            }
+          </div>
+        }
+      </mat-form-field>
+
+      <div class="login-options">
+        <mat-checkbox>Me lembre</mat-checkbox>
+        <a class="senha" href="#">Esqueceu sua senha?</a>
+      </div>
+
+      <button class="login-button" type="submit" [disabled]="formulario.invalid">
+        LOGIN
+      </button>
+    </form>
+  </mat-card>
+</div>
